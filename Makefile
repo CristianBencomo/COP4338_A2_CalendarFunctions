@@ -1,23 +1,13 @@
 CC = gcc
 CFLAGS = -g -Wall -c
 LFLAGS = -g -Wall 
-TARGETS = objects/main.o objects/calendar.o
-HEADERS = Calendar.h
-vpath %.c src
-vpath %.h src
+TARGETS = objects/main.o
 
-
-calendarFunctions : $(TARGETS)
-	$(CC) $(LFLAGS) $(TARGETS) -o calendarFunctions
-
-objects/main.o : main.c calendar.c calendar.h 
-	$(CC) $(CFLAGS) src/main.c -o objects/main.o
-
-objects/calendar.o : calendar.c calendar.h 
-	$(CC) $(CFLAGS) src/calendar.c -o objects/calendar.o
+calendarFunctions : src/main.c
+	$(CC) $(LFLAGS) src/main.c -o calendarFunctions
 
 clean :
-	\rm -r BencomoCalendarFunctions.zip objects/* calendarFunctions
+	\rm BencomoCalendarFunctions.zip calendarFunctions
 
 zip : 
-	zip BencomoCalendarFunctions.zip objects src calendarFunctions
+	zip BencomoCalendarFunctions.zip src calendarFunctions
