@@ -10,4 +10,4 @@ clean :
 	\rm BencomoCalendarFunctions.zip calendarFunctions
 
 zip : 
-	zip BencomoCalendarFunctions.zip src calendarFunctions
+	zip BencomoCalendarFunctions.zip src/* *
